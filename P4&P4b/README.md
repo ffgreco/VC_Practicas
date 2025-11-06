@@ -25,7 +25,7 @@ Para lograrlo, se emplean dos componentes principales:
 El flujo completo del sistema combina técnicas de **visión por computador**, **detección de objetos** y **reconocimiento de texto**, integrando todo en un pipeline funcional que genera un **video anotado** y un **archivo CSV** con los resultados.
 
 <p align="center">
-  <img src="rsc/dirs.png" alt="foto" width="400">
+  <img src="rsc/dirs.png" alt="foto" width="150">
 </p>
 
 ---
