@@ -2,7 +2,7 @@
 Autores: Francesco Faustino Greco - Bianca Cocci  
 **GRUPO 05**
 
-# **VISIÓN POR COMPUTADOR - PRÁCTICA 4 & 4b **
+# VISIÓN POR COMPUTADOR - PRÁCTICA 4 & 4b
 
 ## Índice
 
