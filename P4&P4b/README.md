@@ -7,6 +7,7 @@ Autores: Francesco Faustino Greco - Bianca Cocci
 ## Índice
 
 - [Introducción](#introducción)
+- [Graficas Del Reentreamiento](#graficas-del-reentreamiento)
 - [Detección de vehículos](#detección-de-vehículos)
 - [Reconocimiento de matrículas](#reconocimiento-de-matrículas)
 - [Resultados y análisis](#resultados-y-análisis)
@@ -27,6 +28,46 @@ El flujo completo del sistema combina técnicas de **visión por computador**, *
 <p align="center">
   <img src="rsc/dirs.png" alt="foto" width="150">
 </p>
+
+---
+
+## Graficas Del Reentreamiento
+Aquí hay una tabla que muestra los gráficos de Reentreamiento: 
+<table style="width: 100%; text-align: center; border-spacing: 20px;">
+  <tr>
+    <td style="text-align: center;">
+      <img src="./runs/detect/val/confusion_matrix.png" width="260" alt="Matriz de Confusión">
+      <p>Esta es la matriz de confusión que muestra cómo el modelo predice cada clase.</p>
+    </td>
+    <td style="text-align: center;">
+      <img src="./runs/detect/val/confusion_matrix_normalized.png" width="260" alt="Matriz de Confusión Normalizada">
+      <p>Esta matriz normalizada refleja el nivel de precisión relativa de cada clase.</p>
+    </td>
+  </tr>
+
+  <tr>
+    <td style="text-align: center;">
+      <img src="./runs/detect/val/F1_curve.png" width="260" alt="Curva de F1">
+      <p>La curva F1 ilustra el equilibrio entre precisión y recall según la confianza del modelo.</p>
+    </td>
+    <td style="text-align: center;">
+      <img src="./runs/detect/val/P_curve.png" width="260" alt="Curva de Precisión">
+      <p>Curva que muestra cómo varía la precisión del modelo a diferentes niveles de confianza.</p>
+    </td>
+  </tr>
+
+  <tr>
+    <td style="text-align: center;">
+      <img src="./runs/detect/val/PR_curve.png" width="260" alt="Curva Precisión-Recall">
+      <p>La curva precisión-recall permite visualizar el rendimiento global del modelo.</p>
+    </td>
+    <td style="text-align: center;">
+      <img src="./runs/detect/val/R_curve.png" width="260" alt="Curva de Recall">
+      <p>La curva de recall muestra la capacidad del modelo para detectar correctamente los casos relevantes.</p>
+    </td>
+  </tr>
+</table>
+
 
 ---
 
@@ -120,16 +161,20 @@ El rendimiento del sistema depende de:
 
 El sistema ha demostrado resultados robustos en entornos controlados, aunque puede verse afectado por condiciones adversas (luces intensas, reflejos o matrículas parcialmente ocultas).
 
+
 <p align="center">
-  <img src="rsc/output1.gif" alt="foto" width="400">
+  <b>Video número 1: salida con detección</b><br>
+  <img src="rsc/output1.gif" alt="foto" style="width:100%; height:auto">
 </p>
 
 <p align="center">
-  <img src="rsc/output2.gif" alt="foto" width="400">
+  <b>Video número 2: video asignado como tarea</b><br>
+  <img src="rsc/output2.gif" alt="foto" style="width:100%; height:auto">
 </p>
 
 <p align="center">
-  <img src="rsc/output3.gif" alt="foto" width="400">
+  <b>Detección con modelo de personas y seguimiento en movimiento</b><br>
+  <img src="rsc/output3.gif" alt="foto" style="width:100%; height:auto">
 </p>
 
 ---
