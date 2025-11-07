@@ -177,6 +177,22 @@ El sistema ha demostrado resultados robustos en entornos controlados, aunque pue
   <img src="rsc/output3.gif" alt="foto" style="width:100%; height:auto">
 </p>
 
+### `test_lp_eval.csv`
+
+Este archivo contiene los resultados de evaluación del modelo de detección de matrículas (license plates) en el conjunto de prueba (`test`).
+
+Cada fila representa una predicción del modelo comparada con su etiqueta real, permitiendo analizar el rendimiento de detección y reconocimiento.  
+
+**Columnas principales:**
+- **image**: nombre o ruta de la imagen de prueba.  
+- **class**: clase predicha por el modelo (por ejemplo, `license_plate`).  
+- **confidence**: nivel de confianza de la predicción (valor entre 0 y 1).  
+- **xmin, ymin, xmax, ymax**: coordenadas del recuadro delimitador (bounding box) de la detección.  
+- **true_class** *(si está presente)*: clase real correspondiente, utilizada para comparar con la predicción.  
+- **iou** *(opcional)*: valor de *Intersection over Union* que mide la precisión espacial de la detección.
+
+Este archivo se usa para generar métricas de evaluación como **precisión**, **recall**, **F1-score** o la **matriz de confusión**, y sirve como base para el análisis de rendimiento del modelo YOLO en el conjunto de test.
+
 ---
 
 ## Fuentes y Documentación
