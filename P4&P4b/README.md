@@ -183,15 +183,13 @@ Este archivo contiene los resultados de evaluación del modelo de detección de 
 
 Cada fila representa una predicción del modelo comparada con su etiqueta real, permitiendo analizar el rendimiento de detección y reconocimiento.  
 
-**Columnas principales:**
-- **image**: nombre o ruta de la imagen de prueba.  
-- **class**: clase predicha por el modelo (por ejemplo, `license_plate`).  
-- **confidence**: nivel de confianza de la predicción (valor entre 0 y 1).  
-- **xmin, ymin, xmax, ymax**: coordenadas del recuadro delimitador (bounding box) de la detección.  
-- **true_class** *(si está presente)*: clase real correspondiente, utilizada para comparar con la predicción.  
-- **iou** *(opcional)*: valor de *Intersection over Union* que mide la precisión espacial de la detección.
-
-Este archivo se usa para generar métricas de evaluación como **precisión**, **recall**, **F1-score** o la **matriz de confusión**, y sirve como base para el análisis de rendimiento del modelo YOLO en el conjunto de test.
+**Columnas (en orden):**
+- **file**: nombre del archivo de imagen (por ejemplo, `3824JLB.jpg`).  
+- **gt_text**: texto *ground truth* de la matrícula (valor correcto).  
+- **ocr_text**: texto reconocido por el modelo OCR.  
+- **gt_bbox**: *bounding box* real en el formato `[xmin, ymin, xmax, ymax]`.  
+- **pred_bbox**: *bounding box* predicha por el modelo en el mismo formato.  
+- **IoU**: valor de *Intersection over Union* entre `gt_bbox` y `pred_bbox`, tal como se muestra en el archivo (puede expresarse como fracción o porcentaje dependiendo del proceso de cálculo utilizado).
 
 ---
 
