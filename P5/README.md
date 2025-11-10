@@ -20,6 +20,6 @@ Autores: Francesco Faustino Greco - Bianca Cocci
 
 ## Fuentes y Documentación
 
-- [Documentación oficial de OpenCV](https://docs.opencv.org/)  
+- Documentación oficial de **OpenCV**
 - **ChatGPT** – Asistencia para redacción técnica y explicación de código
 - **Google Translate** – Asistencia lingüística
