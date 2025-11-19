@@ -123,10 +123,9 @@ Face Detection funciona de forma muy estable incluso con varios rostros.
 - El rendimiento es fluido en tiempo real (≈30 FPS).
 - El cambio de filtro mediante teclado permite una interacción rápida.
 
-<p align="center">
-  <b>Vídeo que muestra el filtro</b><br>
-  <img src="rsc/output2.mp4" alt="video" style="width:100%; height:auto">
-</p>
+
+https://github.com/user-attachments/assets/aadf0012-a7e6-4e99-9a53-6e1884c073f3
+
 
 ---
 
