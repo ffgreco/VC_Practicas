@@ -8,6 +8,7 @@ Autores: Francesco Faustino Greco – Bianca Cocci
 
 - [Introducción](#introducción)
 - [Reentrenamiento y elección del modelo](#reentrenamiento-y-elección-del-modelo)
+- [Captura y generación del dataset](#captura-y-generacion-del-dataset)
 - [Detección de rostros (MediaPipe Face Detection)](#detección-de-rostros-mediapipe-face-detection)
 - [Filtro tipo Snapchat con Face Mesh](#filtro-tipo-snapchat-con-face-mesh)
 - [Resultados y análisis](#resultados-y-análisis)
@@ -28,7 +29,27 @@ Ambos trabajos cumplen con la temática solicitada:
 
 ---
 
-## Reentrenamiento y elección del modelo
+## Captura y generación del dataset
+
+Para complementar los módulos de detección y filtros, se creó un pequeño **dataset propio** utilizando el cuaderno `cattura_dataset.ipynb`.  
+Este archivo permite capturar imágenes desde la webcam y organizarlas automáticamente en carpetas etiquetadas.
+
+### Funcionalidades principales
+
+Definición de la clase a capturar mediante:
+```python
+  CLASS_NAME = "smile"  # Ejemplo de clase
+```
+- Creación automática de la carpeta correspondiente dentro de dataset/.
+- Captura de imágenes con barra espaciadora.
+- Visualización en tiempo real con OpenCV.
+- Almacenamiento estructurado de los datos para uso posterior en modelos de clasificación.
+
+https://github.com/user-attachments/assets/79795a53-f069-4de4-bbfe-97a8d0334c06
+
+---
+
+## Reentrenamiento y elección del modelo MediaPipe
 
 Se evaluaron distintas opciones estudiadas en clase (Haar Cascades, HOG, DNN). Finalmente se seleccionó **MediaPipe**, ya que ofrece:
 
@@ -36,9 +57,6 @@ Se evaluaron distintas opciones estudiadas en clase (Haar Cascades, HOG, DNN). F
 - Detección estable incluso en condiciones de iluminación imperfecta.  
 - Keypoints automáticos para cada rostro.  
 - Fácil integración con Python y OpenCV.
-
-
-https://github.com/user-attachments/assets/79795a53-f069-4de4-bbfe-97a8d0334c06
 
 
 ---
