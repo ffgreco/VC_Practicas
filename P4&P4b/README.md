@@ -66,6 +66,16 @@ Aquí hay una tabla que muestra los gráficos de Reentreamiento:
       <p>La curva de recall muestra la capacidad del modelo para detectar correctamente los casos relevantes.</p>
     </td>
   </tr>
+    <tr>
+    <td style="text-align: center;">
+      <img src="./runs/detect/val/previsioni.png" width="260" alt="Curva Precisión-Recall">
+      <p>El gráfico muestra los resultados de tu entrenamiento con sus respectivas predicciones y comparaciones.</p>
+    </td>
+    <td style="text-align: center;">
+      <img src="./runs/detect/val/labels_correlogram.png" width="260" alt="Curva de Recall">
+      <p>La gráfica muestra la distribución y relación entre las variables del modelo mediante histogramas y mapas de calor.</p>    
+    </td>
+  </tr>
 </table>
 
 
