@@ -37,10 +37,9 @@ Se evaluaron distintas opciones estudiadas en clase (Haar Cascades, HOG, DNN). F
 - Keypoints automáticos para cada rostro.  
 - Fácil integración con Python y OpenCV.
 
-<p align="center">
-  <b>Vídeo que muestra el modelo entrenado</b><br>
-  <img src="rsc/output1.mp4" alt="video" style="width:100%; height:auto">
-</p>
+
+https://github.com/user-attachments/assets/79795a53-f069-4de4-bbfe-97a8d0334c06
+
 
 ---
 
