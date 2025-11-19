@@ -39,7 +39,7 @@ Se evaluaron distintas opciones estudiadas en clase (Haar Cascades, HOG, DNN). F
 
 <p align="center">
   <b>Vídeo que muestra el modelo entrenado</b><br>
-  <img src="rsc/output1.gif" alt="foto" width="400" height="400">
+  <img src="rsc/output1.mp4" alt="video" style="width:100%; height:auto">
 </p>
 
 ---
@@ -51,6 +51,11 @@ El primer módulo detecta rostros en tiempo real mediante:
 - `model_selection=0` → mejor para distancias cortas (webcam).  
 - Dibujado automático de bounding boxes y keypoints.  
 - Procesamiento en RGB para compatibilidad con MediaPipe.
+
+<p align="center">
+  <b>Órdenes para cambiar al perro</b><br>
+  <img src="rsc/mediapipe1.png" alt="foto" width="400" height="400">
+</p>
 
 ### Código principal
 
@@ -121,7 +126,7 @@ Face Detection funciona de forma muy estable incluso con varios rostros.
 
 <p align="center">
   <b>Vídeo que muestra el filtro</b><br>
-  <img src="rsc/output2.gif" alt="foto" width="400" height="400">
+  <img src="rsc/output2.mp4" alt="video" style="width:100%; height:auto">
 </p>
 
 ---
