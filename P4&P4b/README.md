@@ -10,6 +10,7 @@ Autores: Francesco Faustino Greco - Bianca Cocci
 - [Graficas Del Reentreamiento](#graficas-del-reentreamiento)
 - [Detección de vehículos](#detección-de-vehículos)
 - [Reconocimiento de matrículas](#reconocimiento-de-matrículas)
+- [Comparación OCR: EasyOCR vs Tesseract](#comparación-ocr:-easyocr-vs-tesseract)
 - [Resultados y análisis](#resultados-y-análisis)
 - [Fuentes y Documentación](#fuentes-y-documentación)
 
@@ -154,6 +155,95 @@ with open(CSV_OUT, "a", newline="") as f:
     writer = csv.writer(f)
     writer.writerow([frame_id, label, text, conf, x1, y1, x2, y2])
 ```
+
+---
+
+## Comparación OCR: EasyOCR vs Tesseract
+
+```python
+# Inicializar EasyOCR (ahora correctamente definido)
+ocr = easyocr.Reader(['en'], gpu=False)
+
+# Cargar modelo YOLO de matrículas (ruta absoluta correcta)
+lp_model = YOLO("/Users/biancacocci/Downloads/targa_lab/runs_lp/lp_train23/weights/best.pt")
+
+# Carpeta con imágenes del test
+TEST_IMGS = Path("/Users/biancacocci/Downloads/targa_lab/datasets/data_lp/test/images")
+
+def clean_text(t):
+    return re.sub(r"[^A-Z0-9]", "", t.upper())
+
+def gt_text_from_filename(p):
+    m = re.search(r"([A-Z0-9]{5,})", p.stem.upper())
+    return m.group(1) if m else ""
+
+print("Inicio comparación OCR...\n")
+
+n = 0
+tess_ok = easy_ok = 0
+tess_times = []
+easy_times = []
+rows = []
+
+for img_path in sorted(TEST_IMGS.glob("*")):
+    img = cv2.imread(str(img_path))
+    if img is None: 
+        continue
+
+    gt_txt = gt_text_from_filename(img_path)
+
+    pred = lp_model.predict(str(img_path), conf=0.25, verbose=False)[0]
+    if pred.boxes is None or len(pred.boxes)==0:
+        continue
+
+    b = pred.boxes[pred.boxes.conf.argmax()]
+    x1,y1,x2,y2 = map(int, b.xyxy[0].cpu().numpy())
+    roi = img[y1:y2, x1:x2]
+
+    gray = cv2.cvtColor(roi, cv2.COLOR_BGR2GRAY)
+    gray = cv2.bilateralFilter(gray, 7, 75, 75)
+    gray = cv2.resize(gray, None, fx=2.0, fy=2.0)
+    _, thr = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY+cv2.THRESH_OTSU)
+
+    # OCR Tesseract
+    t0 = time.time()
+    tess_txt = clean_text(pytesseract.image_to_string(thr, config="--psm 7"))
+    tess_times.append(time.time() - t0)
+
+    # OCR EasyOCR
+    t1 = time.time()
+    out = ocr.readtext(roi, allowlist='0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ')
+    easy_txt = clean_text(out[0][1]) if out else ""
+    easy_times.append(time.time() - t1)
+
+    n += 1
+    tess_ok += int(tess_txt == gt_txt)
+    easy_ok += int(easy_txt == gt_txt)
+
+    rows.append([img_path.name, gt_txt, tess_txt, easy_txt])
+
+print("Imágenes evaluadas:", n)
+if n > 0:
+    print("Tesseract - exactitud:", tess_ok, "/", n, "=", f"{tess_ok/n:.1%}",
+          "| tiempo medio:", f"{np.mean(tess_times)*1000:.1f} ms")
+    print("EasyOCR   - exactitud:", easy_ok, "/", n, "=", f"{easy_ok/n:.1%}",
+          "| tiempo medio:", f"{np.mean(easy_times)*1000:.1f} ms")
+
+OUT_CSV = Path("/Users/biancacocci/Downloads/targa_lab/outputs/ocr_compare.csv")
+with open(OUT_CSV, "w", newline="", encoding="utf-8") as f:
+    w = csv.writer(f)
+    w.writerow(["file","gt_text","tess_text","easy_text"])
+    w.writerows(rows)
+```
+
+Ahora comenzamos la comparación con el OCR:
+```python
+Imágenes evaluadas: 7
+Tesseract - exactitud: 1 / 7 = 14.3% | tiempo medio: 550.5 ms
+EasyOCR   - exactitud: 2 / 7 = 28.6% | tiempo medio: 996.1 ms
+```
+
+![WhatsApp Image 2025-12-10 at 11 38 37](https://github.com/user-attachments/assets/f53dceb0-be6c-453b-80b7-5cdfa0e407ce)
 
 ---
 
