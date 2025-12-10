@@ -10,7 +10,7 @@ Autores: Francesco Faustino Greco - Bianca Cocci
 - [Graficas Del Reentreamiento](#graficas-del-reentreamiento)
 - [Detección de vehículos](#detección-de-vehículos)
 - [Reconocimiento de matrículas](#reconocimiento-de-matrículas)
-- [Comparación OCR: EasyOCR vs Tesseract](#comparación-ocr:-easyocr-vs-tesseract)
+- [Comparación OCR: EasyOCR vs Tesseract](#comparacion-ocr-easyocr-vs-tesseract)
 - [Resultados y análisis](#resultados-y-análisis)
 - [Fuentes y Documentación](#fuentes-y-documentación)
 
