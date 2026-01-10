@@ -120,6 +120,37 @@ El motor de renderizado soporta múltiples estilos visuales programados:
 * **DASH/DOTTED:** Patrones de líneas discontinuas calculados matemáticamente sobre la longitud del arco del trazo.
 * **CHALK (Tiza):** Simulación de textura rugosa mediante ruido aleatorio y transparencia alpha.
 
+
+```python
+    def mandala_segments(self, p1, p2):
+        cx0 = Config.LEFT_BAR_W + (Config.WIDTH - Config.LEFT_BAR_W - Config.RIGHT_BAR_W) / 2.0
+        cy0 = Config.HEIGHT / 2.0
+        n = self.mandala_count()
+        out = []
+
+        x1, y1 = p1
+        x2, y2 = p2
+
+        for k in range(n):
+            ang = 2.0 * math.pi * k / n
+
+            a1 = self._rot(x1, y1, ang, cx0, cy0)
+            a2 = self._rot(x2, y2, ang, cx0, cy0)
+
+            p1a = (int(clamp(a1[0], 0, Config.WIDTH - 1)), int(clamp(a1[1], 0, Config.HEIGHT - 1)))
+            p2a = (int(clamp(a2[0], 0, Config.WIDTH - 1)), int(clamp(a2[1], 0, Config.HEIGHT - 1)))
+            out.append((p1a, p2a))
+
+            if self.mandala_mirror:
+                mx1 = (2.0 * cx0 - a1[0], a1[1])
+                mx2 = (2.0 * cx0 - a2[0], a2[1])
+                p1m = (int(clamp(mx1[0], 0, Config.WIDTH - 1)), int(clamp(mx1[1], 0, Config.HEIGHT - 1)))
+                p2m = (int(clamp(mx2[0], 0, Config.WIDTH - 1)), int(clamp(mx2[1], 0, Config.HEIGHT - 1)))
+                out.append((p1m, p2m))
+
+        return out
+```
+
 ---
 
 ## Resultados y análisis
