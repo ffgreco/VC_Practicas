@@ -3,6 +3,12 @@ Autores: Francesco Faustino Greco – Bianca Cocci
 
 # VISIÓN POR COMPUTADOR – VIRTUAL PAINTER PRO
 
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+![OpenCV](https://img.shields.io/badge/opencv-%23white.svg?style=for-the-badge&logo=opencv&logoColor=black)
+![MediaPipe](https://img.shields.io/badge/MediaPipe-00BACC?style=for-the-badge&logo=google&logoColor=white)
+![NumPy](https://img.shields.io/badge/numpy-%23013243.svg?style=for-the-badge&logo=numpy&logoColor=white)
+![Jupyter Notebook](https://img.shields.io/badge/jupyter-%23FA0F00.svg?style=for-the-badge&logo=jupyter&logoColor=white)
+
 ## Índice
 
 - [Introducción](#introducción)
@@ -20,6 +26,8 @@ Autores: Francesco Faustino Greco – Bianca Cocci
 En esta práctica se ha desarrollado **"Virtual Painter Pro - Thesis Edition"**, una aplicación avanzada de visión por computador que convierte la webcam en un lienzo digital interactivo. El objetivo es permitir al usuario dibujar, pintar y controlar una interfaz gráfica compleja (UI) utilizando únicamente gestos manuales, eliminando la necesidad de periféricos físicos.
 
 El sistema integra un motor de renderizado propio (`PainterEngine`) capaz de simular herramientas artísticas, gestionar capas de deshacer/rehacer y aplicar efectos matemáticos en tiempo real.
+
+![WhatsApp Image 2026-01-10 at 09 02 51](https://github.com/user-attachments/assets/9f581892-db1b-4334-8caf-2ce744e664ba)
 
 ---
 
@@ -68,6 +76,8 @@ La aplicación utiliza una máquina de estados basada en la configuración de lo
     * Si la distancia es menor a un umbral (`PINCH_START`), se activa el modo de redimensionado.
     * Mover los dedos altera el tamaño del pincel (Brush Size) o de la goma en tiempo real.
     * Visualmente se muestra un círculo en la punta del dedo que crece o decrece para dar feedback al usuario.
+
+ ![WhatsApp Image 2026-01-10 at 09 02 51](https://github.com/user-attachments/assets/7d25bf1c-8c47-42d8-978e-d00ac60a4bef)
 
 ---
 
@@ -121,6 +131,8 @@ El sistema "Virtual Painter Pro" demuestra ser una aplicación robusta y funcion
 * **Grabación de vídeo:** Capacidad de grabar la sesión creativa en formato MP4.
 * **Historial de Undo/Redo:** Pila de estados para deshacer y rehacer acciones (Max History = 10).
 * **Guardado:** Exportación de obras en alta calidad PNG a la carpeta local `Artworks_Gallery`.
+
+![WhatsApp Image 2026-01-10 at 09 02 45](https://github.com/user-attachments/assets/ae47011a-9639-4a1c-87e8-88468fb3041f)
 
 ---
 
