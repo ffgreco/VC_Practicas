@@ -55,6 +55,9 @@ class HandDetector:
         self.mpDraw = mp.solutions.drawing_utils
 ```
 
+![video](https://github.com/user-attachments/assets/ca7b5f6d-eae8-4757-823b-24c3567892aa)
+
+
 ## Gestos e Interacción
 
 La aplicación utiliza una máquina de estados basada en la configuración de los dedos para alternar entre modos sin latencia. El sistema distingue tres acciones principales:
